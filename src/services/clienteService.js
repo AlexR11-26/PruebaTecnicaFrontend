@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "https://localhost:7079/api/clientes"
+const API_URL = "https://pruebatecnicabackend-cnarfjfzcrbabbce.canadacentral-01.azurewebsites.net/api/clientes"
 
 export const listarClientes = async () => {
   const response = await axios.get(`${API_URL}/listar`)
