@@ -24,6 +24,7 @@ function ClienteInicio() {
     const existe = clientes.find(c => c.email === form.email)
 
     if (existe) {
+    localStorage.setItem("idCliente", existe.idCliente)
       navigate("/catalogo")
     } else {
       alert("Email no encontrado")
@@ -41,14 +42,26 @@ function ClienteInicio() {
       telefono: form.telefono
     })
 
-    alert("Cliente registrado correctamente")
-    navigate("/catalogo")
+    alert("Cliente registrado correctamente. Ahora inicia sesión.")
+    
+    // Volver al modo "cliente" para iniciar sesión
+    setModo("cliente")
+    
+    // Limpiamos el formulario
+    setForm({
+      documento: "",
+      nombres: "",
+      apellidos: "",
+      email: "",
+      telefono: ""
+    })
 
   } catch (error) {
     console.error(error)
     alert("Error al registrar cliente")
   }
 }
+
 
 
   const volverInicio = () => {
